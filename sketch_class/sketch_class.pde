@@ -1,25 +1,26 @@
 class Kvadrat {
-    float x, y, s;
-    Kvadrat(float _x, float _y, float _s) {
+    float x, y, s, v;
+    Kvadrat(float _x, float _y, float _s, float _v) {
         x = _x;
         y = _y;
         s = _s;
+        v = _v;
     }
 
-    void right(float s) {
-        x = x + s;
-        if(x >= width) {
-            s = -s; 
+    void right(float v) {
+        x = x + v;     
+        if((x + v) >= width) {
+            v = -v; 
         } else if(x <= 0) {
-              s = -s;
-          }
+              v = -v;
+          }  
     }
 }
 
 class Cvet extends Kvadrat {
   color a;
-  Cvet(float _x, float _y, float _s, color _a) { 
-      super(_x, _y, _s);
+  Cvet(float _x, float _y, float _s, float _v, color _a) { 
+      super(_x, _y, _s, _v);
       a = _a;
   }
       
@@ -35,7 +36,7 @@ void setup() {
     size(600, 600);
     k_array = new Cvet[50];
     for (int i = 0; i < 50; i++) {
-        k_array[i] = new Cvet(random(width-50), random(height-50), 50, color(random(255), random(255), random(255)));
+        k_array[i] = new Cvet(random(width-50), random(height-50), 50, 2, color(random(255), random(255), random(255)));
     }
 }
 
