@@ -1,17 +1,17 @@
 class Kvadrat {
     float x, y, s;
     Kvadrat(float _x, float _y, float _s) {
-        this.x = _x;
-        this.y = _y;
-        this.s = _s;
+        x = _x;
+        y = _y;
+        s = _s;
     }
-
+    
     void draw() {
-        rect(this.x, this.y, this.s, this.s);
+        rect(x, y, s, s); 
     }
 
-    void right(float _s) {
-        this.x += _s;
+    void right(float s) {
+        x += s;
     }
 }
 
@@ -21,14 +21,14 @@ void setup() {
     size(600, 600);
     k_array = new Kvadrat[10];
     for (int i = 0; i < 10; i++) {
-        k_array[i] = new Kvadrat(random(width), random(height), 100.0);
+        k_array[i] = new Kvadrat(random(width-50), random(height-50), 50);
     }
 }
 
 void draw() {
     background(0);
     for (int i = 0; i < 10; i++) {
-        k_array[i].draw();
-        k_array[i].right(random(5));
+        k_array[i]. draw();
+        k_array[i].right(random(3));
     }
 }
