@@ -6,14 +6,13 @@ class Kvadrat {
         s = _s;
         v = _v;
     }
+    
+    void draw() {
+       rect(x, y, s, s);  
+    }
 
     void right(float v) {
         x = x + v;
-        if ((x + v) >= width) {
-            v = -v;
-        } else if (x <= 0) {
-            v = -v;
-        }
     }
 }
 
@@ -24,9 +23,8 @@ class Cvet extends Kvadrat {
         a = _a;
     }
 
-    void draw() {
+    void kras (color a) {
         fill(a);
-        rect(x, y, s, s);
     }
 }
 
@@ -43,6 +41,7 @@ void setup() {
 void draw() {
     background(0);
     for (int i = 0; i < 50; i++) {
+        k_array[i].kras (color(random(255), random(255), random(255)));
         k_array[i].draw();
         k_array[i].right(2);
     }
